@@ -5,7 +5,7 @@ public:
         stack<int> st;
         for (int i = 0; i < n; i++) {
             if (s[i]==')' || s[i]=='}' || s[i]==']') {
-                if (s.empty()) {
+                if (st.empty()) {
                     return false;
                 }
                 if (s[i]==')' && st.top()!='(') {
@@ -23,5 +23,9 @@ public:
                 st.push(s[i]);
             }
         }
+        if (!st.empty()) {
+            return false;
+        }
+        return true;
     }
 };
